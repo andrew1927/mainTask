@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WELCOME TO VISEVEN IMAGESTOCK</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/packery@2/dist/packery.pkgd.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="wrapper">
+            <h1>WELCOME TO VISEVEN <span>IMAGESTOCK</span></h1>
+            <div class="gallery grid" v-if="show">
+                <img v-for="(item,index) in arr" :class="[grid-item, arr[index].type]" :src="item.src" @click="showPopup">
+                <label for="add-item" class="grid-item">
+                    <input type="file" @change="uploadImage" id="add-item">
+                    <div>
+                        <div class="circle"></div>
+                        <span>Add your Picture</span>
+                    </div>
+                </label>
+            </div>
+            <div class="pop-up" v-if="!show">
+                <span class="close-pop-up" @click="showPopup"></span>
+            </div>
+        </div>
+    </div>
+    <script src="script/script.js"></script>
+</body>
+</html>
