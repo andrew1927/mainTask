@@ -17,6 +17,10 @@
     color: #21b8c6;
 }
 .gallery {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-top: 40px;
     width: 974px;
     height: 620px;
 }
@@ -76,4 +80,8 @@ input + div {
     width: 20px;
     height: 20px;
     background: url("../images/close-pop-up.png") no-repeat;
+}
+.pop-up img {
+    width: 450px;
+    height: 575px;
 }

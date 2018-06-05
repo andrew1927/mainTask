@@ -5,10 +5,11 @@ let app = new Vue({
         selectedFile: null,
         fileReader: new FileReader(),
         addedSrc: 6,
+        srcPopup: null,
         arr: [
             {
                 name: "img1",
-                type: 'horizontal grid-item',
+                type: 'portrait',
                 src: "images/img1.png",
                 likes: 4,
                 dislikes: 0,
@@ -22,7 +23,7 @@ let app = new Vue({
             },
             {
                 name: "img2",
-                type: 'vertical grid-item',
+                type: 'portrait',
                 src: "images/img2.png",
                 likes: 4,
                 dislikes: 0,
@@ -36,7 +37,7 @@ let app = new Vue({
             },
             {
                 name: "img3",
-                type: 'portrait grid-item',
+                type: 'portrait',
                 src: "images/img3.png",
                 likes: 4,
                 dislikes: 0,
@@ -50,7 +51,7 @@ let app = new Vue({
             },
             {
                 name: "img4",
-                type: 'portrait grid-item',
+                type: 'portrait',
                 src: "images/img4.png",
                 likes: 4,
                 dislikes: 0,
@@ -64,7 +65,7 @@ let app = new Vue({
             },
             {
                 name: "img5",
-                type: 'portrait grid-item',
+                type: 'portrait',
                 src: "images/img5.png",
                 likes: 4,
                 dislikes: 0,
@@ -78,7 +79,7 @@ let app = new Vue({
             },
             {
                 name: "img6",
-                type: 'portrait grid-item',
+                type: 'portrait',
                 src: "images/img6.png",
                 likes: 4,
                 dislikes: 0,
@@ -92,7 +93,7 @@ let app = new Vue({
             },
             {
                 name: "img7",
-                type: 'portrait grid-item',
+                type: 'portrait',
                 src: "images/img7.png",
                 likes: 4,
                 dislikes: 0,
@@ -106,7 +107,7 @@ let app = new Vue({
             },
             {
                 name: "img8",
-                type: 'horizontal grid-item',
+                type: 'portrait',
                 src: "images/img8.png",
                 likes: 4,
                 dislikes: 0,
@@ -132,7 +133,7 @@ let app = new Vue({
                 constructor (name,src) {
                     this.name = name;
                     this.src = src;
-                    this.type = "portrait grid-item";
+                    this.type = "portrait";
                     this.likes = 0;
                     this.dislikes = 0;
                 }
@@ -143,13 +144,10 @@ let app = new Vue({
             console.log(image);
             console.log(this.arr);
         },
-        showPopup(){
+        showPopup(index){
             this.show = !this.show;
+            this.srcPopup = this.arr[index].src;
         }
     }
 });
-let elem = document.querySelector('.grid');
-let pckry = new Packery( elem, {
-    itemSelector: '.grid-item',
-    gutter: 10
-});
+
